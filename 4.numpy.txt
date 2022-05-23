@@ -1,0 +1,37 @@
+# Creating array with Custom Dtypes
+arr3 = np.array([1,2,3], dtype=float)
+arr3 = np.array([1,2,3], dtype=complex)
+arr3 = np.array([1,2,3], dtype=int)
+arr3 = np.array([1,-2,3], dtype=np.int8)
+
+for i in range(1, 10, 2):
+print(i)
+for i in np.arange(2, 10):
+print(i)
+
+# Arithmetics
+mat1 = np.array([1,4,8])
+mat2 = np.array([[1,1,1], [2,2,2], [3,3,3]])
+np.add(mat1,mat2)
+np.multiply(mat1, mat2)
+np.subtract(mat1,mat2)
+np.power(mat1,3)
+
+# Statistical functions
+np.ptp(mat2, axis=1)
+np.median(mat1)
+np.mean(mat1)
+np.std(mat1)
+np.var(mat2)
+
+# The Where Clause
+arr = np.arange(9).reshape(3,3)
+op = np.where(arr%3==0)
+bl = np.extract(arr%2==0, arr)
+np.ones((3,3), dtype=int)
+np.zeros((2,3), dtype=int)
+
+# Sine curve
+a=np.arange(0,2*np.pie,0.5)
+x=np.sin(a)
+plt.plot(a,x)

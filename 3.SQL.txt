@@ -1,0 +1,75 @@
+# SQL
+
+import mysql.connector
+mydb = mysql.connector.connect(host="localhost", user="root",
+password="",database="abc")
+mycursor = mydb.cursor()
+mycursor.execute("CREATE DATABASE silent_killer")
+mycursor.execute("SHOW DATABASES")
+x in mycursor: print(x)
+mycursor.execute("CREATE table student(Roll int(10) primary key,name varchar(20))")
+mycursor.execute("SHOW TABLES")
+for x in mycursor:
+print(x)
+
+# Inserting
+sql = "INSERT INTO students (Roll_no,name, address,registration_id) VALUES (0,'A'))"
+mycursor.execute(sql)
+mydb.commit()
+
+#update statment
+sql = "UPDATE students SET name = 'silent killer' WHERE Roll_no = 800" 
+mycursor.execute(sql)
+print(mycursor.rowcount, "record(s) affected")
+mydb.commit()
+
+	
+#view the data in tables
+mycursor.execute("SELECT * FROM students")
+for x in mycursor:
+print(x)
+
+#DELETE the data
+sql = "DELETE FROM students WHERE name = 'silent killer'"
+mycursor.execute(sql)
+mydb.commit()
+print(mycursor.rowcount, "record(s) deleted")
+
+
+# Mongodb(pymongo)
+import pymongo
+myclient = pymongo.MongoClient("mongodb://localhost:27017/") 
+mydb = myclient["mydatabase"]
+print(myclient.list_database_names())
+
+#create a collection
+mydb = myclient["mydatabase"] 
+mycol = mydb["customers"]
+
+#print collections
+print(mydb.list_collection_names())
+
+mydict = { "name": "John", "address": "Highway 37" }
+x = mycol.insert_one(mydict)
+
+mylist = [
+{ "name": "Amy", "address": "Apple st 652"},
+{ "name": "Hannah", "address": "Mountain21"}]
+x=mycol.insert_many(mylist)
+print(x.inserted_ids)
+
+myquery = { "address": "Park Lane 38" } 
+mydoc = mycol.find(myquery)
+for x in mydoc: print(x)
+
+#update sigle value
+myquery = { "address": "Valley 345" }
+newvalues = { "$set": { "address": "Canyon 123" } } 
+mycol.update_one(myquery,newvalues)
+#print "customers" after the update:
+for x in mycol.find(): print(x)
+
+#select five coloumns
+myresult = mycol.find().limit(5)
+#print the result:
+for x in myresult: print(x)

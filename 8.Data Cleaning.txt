@@ -1,0 +1,25 @@
+from sklearn.preprocessing import MinMaxScaler
+names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
+dataframe = pandas.read_csv(url, names=names)
+array = dataframe.values
+# separate array into input and output components
+X = array[:,0:8]
+Y = array[:,8]
+scaler = MinMaxScaler(feature_range=(0, 1))
+rescaledX = scaler.fit_transform(X)
+
+2. Binarize Data (Make Binary)
+# Python code for binarization
+from sklearn.preprocessing import Binarizer
+binarizer = Binarizer(threshold=0.0).fit(X)
+binaryX = binarizer.transform(X)
+
+
+3. Standardize Data
+# Python code to Standardize data (0 mean, 1 stdev)
+from sklearn.preprocessing import StandardScaler
+X = array[:,0:8]
+Y = array[:,8]
+scaler = StandardScaler().fit(X)
+rescaledX = scaler.transform(X)
+

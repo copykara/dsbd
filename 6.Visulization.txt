@@ -1,0 +1,74 @@
+x = np.arange(0, 3 * np.pi, 0.1) 
+y = np.sin(x) 
+plt.title("sine wave form") 
+# Plot the points using matplotlib 
+plt.plot(x, y) 
+plt.show()
+
+df2.plot.bar(stacked=True)
+
+# Pie Chart
+series = pd.Series(3 * np.random.rand(4), index=['a', 'b', 'c', 'd'], name='series') 
+series.plot.pie(figsize=(6, 6))
+
+
+#Line Graph
+plt.plot([1,2,6,8], [9,16,2,3], 'm+')
+plt.xlabel('Some numbers')
+plt.ylabel('Some more numbers')
+plt.show()
+
+t = np.arange(0., 5., 0.2)
+plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+plt.show()
+
+names = ['GroupA', 'GroupB', 'GroupC']
+values = [1, 10, 100]
+plt.figure(1, figsize=(10,4))
+plt.subplot(131)
+plt.bar(names, values)
+plt.subplot(132)
+plt.scatter(names,values)
+plt.subplot(133)
+plt.plot(names, values)
+plt.suptitle('Categorical Plotting')
+plt.show()
+
+
+
+x = np.arange(0, 3* np.pi, 0.1)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+plt.subplot(1, 2, 1)
+plt.plot(x, y_sin)
+plt.title('Sine Wave')
+
+
+#Histograms
+a = np.array([22, 87, 5, 43, 56, 73, 55, 54, 11, 20, 51, 5, 79, 31, 27])
+plt.hist(a, bins=[0, 20, 40, 60, 80, 100])
+plt.show()
+
+
+x1 = [5, 8, 10]
+y1 = [12, 16, 6]
+x2 = [6, 9, 11]
+y2 = [6, 15, 7]
+plt.bar(x1, y1, color = 'b')
+plt.bar(x2, y2, color = 'g', align='center')
+
+
+PIE Chart Plotting
+labels = ['Politics', 'Science', 'History', 'Heritage']
+interest = [15, 30, 45, 10]
+fig1, ax1 = plt.subplots()
+ax1.pie(interest, labels=labels)
+plt.show()
+
+
+
+
+
+
+
+

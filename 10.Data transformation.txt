@@ -1,0 +1,12 @@
+df=pd.read_excel("E:/EMP.xlsx", "Data") # Load Data sheet of excel file EMP
+df=pd.read_csv(―E:/Test.txt‖,sep=‘\t‘)
+
+from datetime import datetime
+char_date = 'Apr 1 2015 1:20 PM' #creating example character date
+date_obj = datetime.strptime(char_date, '%b %d %Y %I:%M%p')
+print date_obj
+
+df=pd.read_excel("E:/transpose.xlsx", "Sheet1") # Load Data sheet of excel file EMP
+print df
+result= df.pivot(index= 'ID', columns='Product', values='Sales')
+result

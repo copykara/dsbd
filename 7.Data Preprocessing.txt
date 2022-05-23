@@ -1,0 +1,33 @@
+df = pd.DataFrame({'A': ['John', 'Boby', 'Mina', 'Peter', 'Nicky'],
+'B': ['Masters', 'Graduate', 'Graduate', 'Masters', 'Graduate'],
+'C': [27, 23, 21, 23, 24]})
+
+table = pd.pivot_table(df, index =['A', 'B'])
+table = pd.pivot_table(df, values ='A', index =['B', 'C'],columns =['B'], aggfunc = np.sum)
+
+
+#Melt
+df = pd.DataFrame({'Name': {0: 'John', 1: 'Bob', 2: 'Shiela'},
+'Course': {0: 'Masters', 1: 'Graduate', 2: 'Graduate'},
+'Age': {0: 27, 1: 23, 2: 21}})
+pd.melt(df, id_vars =['Name'], value_vars =['Course'])
+pd.melt(df, id_vars =['Name'], value_vars =['Course', 'Age'])
+pd.melt(df, id_vars =['Name'], value_vars =['Course'],
+var_name ='ChangedVarname', value_name ='ChangedValname')
+
+
+#Sort
+data.sort_values(["Team", "Name"], axis=0,
+ascending=True, inplace=True)
+data.sort_values(["Team", "Name"], axis=0,
+ascending=[True,False], inplace=True)
+
+#Rank
+data["Rank"] = data["Name"].rank()
+data["Rank"] = data["Team"].rank(method ='average')
+
+
+#GroupBy
+gkk = daf.groupby(['Team', 'Position'])
+# Print the first value in each group
+gkk.first()

@@ -1,0 +1,37 @@
+# Series
+data = np.array(['a','b','c','d'])  
+#data = np.array(['a','b','c','d'])
+#data = {'a' : 0., 'b' : 1., 'c' : 2.}
+#s = pd.Series(data,index=[100,101,102,103])
+s = pd.Series(data)
+print s[:3]
+
+# DataFrame
+import pandas as pd
+data = [['Alex',10],['Bob',12],['Clarke',13]]
+df = pd.DataFrame(data,columns=['Name','Age'])
+print df
+
+# using del function
+print ("Deleting the first column using DEL function:")
+del df['one']
+print(df)
+# using pop function
+print ("Deleting another column using POP function:")
+df.pop('two')
+print (df)
+
+# Addition of Rows
+df = pd.DataFrame([[1, 2], [3, 4]], columns = ['a','b'])
+df2 = pd.DataFrame([[5, 6], [7, 8]], columns = ['a','b'])
+df = df.append(df2)
+# Drop rows with label 0 (index 0)
+df = df.drop(0)
+
+# creating an empty panel
+import pandas as pd
+import numpy as np
+data = {'Item1' : pd.DataFrame(np.random.randn(4, 3)),
+'Item2' : pd.DataFrame(np.random.randn(4, 2))}
+p = pd.Panel(data)
+print p['Item1']

@@ -1,0 +1,17 @@
+import requests
+from bs4 import BeautifulSoup
+URL = "http://www.values.com/inspirational-quotes"
+r = requests.get(URL)
+soup = BeautifulSoup(r.content, 'html5lib')
+print(soup.prettify())
+
+soup = BeautifulSoup(r.content, 'html5lib')
+quotes=[] # a list to store quotes
+table = soup.find('div', attrs = {'id':'container'})
+for row in table.findAll('div', attrs = {'class':'quote'}):
+	quote = {}
+	quote['theme'] = row.h5.text
+	quote['url'] = row.a['href']
+	quotes.append(quote)
+
+
